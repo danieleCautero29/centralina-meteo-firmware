@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centralina Meteo</title>
+    <link rel="stylesheet" href="styleMQTT.css">
+</head>
+<body>
+    <h1>Centralina Meteo ⛅</h1>
+    <div id="contenitore">
+        <div class="riquadro">
+            <h2>Temperatura 🌡️</h2>
+            <p id="temperatura">-- °C</p>
+            <canvas id="graficoTemperatura"></canvas>
+            <div class="gruppo-bottoni">
+                <button class="grafico">📈</button>
+                <button class="grafico">📊</button>
+                <button class="grafico">🕸️</button>
+            </div>
+        </div>
+        <div class="riquadro">
+            <h2>Umidità 💧</h2>
+            <p id="umidita">-- %</p>
+            <canvas id="graficoUmidita"></canvas>
+            <div class="gruppo-bottoni">
+                <button class="grafico">📈</button>
+                <button class="grafico">📊</button>
+                <button class="grafico">🕸️</button>
+            </div>
+        </div>
+        <div class="riquadro">
+            <h2>CO2 🌫️</h2>
+            <p id="co2">-- ppm</p>
+            <canvas id="graficoCO2"></canvas>
+            <div class="gruppo-bottoni">
+                <button class="grafico">📈</button>
+                <button class="grafico">📊</button>
+                <button class="grafico">🕸️</button>
+            </div>
+        </div>
+        <div class="riquadro">
+            <h2>Luminosità ☀️</h2>
+            <p id="luminosita">-- lux</p>
+            <canvas id="graficoLuminosita"></canvas>
+            <div class="gruppo-bottoni">
+                <button class="grafico">📈</button>
+                <button class="grafico">📊</button>
+                <button class="grafico">🕸️</button>
+            </div>
+        </div>
+        <div class="riquadro full-width">
+            <h2>LED Integrato ESP32</h2>
+            <canvas id="graficoLed"></canvas>
+        </div>
+    </div>
+    <div id="sezione-controlli">
+        <h2>Controlli</h2>
+        <div id="riquadro-led">
+            <span id="icona-led">💡</span>
+            <span id="label-led">LED Integrato ESP32</span>
+            <button id="btnLed" class="led-spento">SPENTO</button>
+        </div>
+    </div>
+ 
+    <!-- CONTROLLO LED RGB -->
+    <div id="sezione-rgb">
+        <h2>LED RGB</h2>
+        <div id="riquadro-rgb">
+            <div id="preview-rgb"></div>
+            <div id="colonna-picker">
+                <label for="colorPicker">Scegli colore</label>
+                <input type="color" id="colorPicker" value="#ff0000">
+            </div>
+            <div id="valori-rgb">
+                <div class="valore-canale">
+                    <span class="etichetta-canale rosso">R</span>
+                    <span id="valR">255</span>
+                </div>
+                <div class="valore-canale">
+                    <span class="etichetta-canale verde">G</span>
+                    <span id="valG">0</span>
+                </div>
+                <div class="valore-canale">
+                    <span class="etichetta-canale blu">B</span>
+                    <span id="valB">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- Chart.js  -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+
+    <script src="jsMQTT.js"></script>
+</body>
+</html>
